@@ -1,0 +1,261 @@
+<nav
+  class="navbar navbar-expand-lg navbar-light myNav"
+  [ngStyle]="{ 'background-color': isLoggedIn() ? '#8bf0ba' : 'chartreuse' }"
+>
+  <div class="container-fluid">
+    <img
+      src="assets/newsappLogo.png"
+      alt=""
+      width="45"
+      height="40"
+      class="d-inline-block align-text-top mx-2"
+    />
+    <a class="navbar-brand text-dark" href="#" *ngIf="!isLoggedIn()">
+      NEWS APP</a
+    >
+    <a
+      class="navbar-brand text-dark"
+      routerLink="/news/top"
+      *ngIf="isLoggedIn() && !admin_identify_func()"
+    >
+      NEWS APP</a
+    >
+    <a
+      class="navbar-brand text-dark"
+      routerLink="/home"
+      *ngIf="isLoggedIn() && admin_identify_func()"
+    >
+      NEWS APP</a
+    >
+    <div class="vl d-none d-lg-block"></div>
+
+    <button
+      class="navbar-toggler text-light"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            aria-current="page"
+            routerLink="/home"
+            *ngIf="admin_identify_func()"
+            >Admin Dashboard</a
+          >
+        </li>
+        <li class="nav-item dropdown" *ngIf="isLoggedIn()">
+          <a
+            class="nav-link dropdown-toggle text-dark"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Editorials
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li>
+              <a
+                class="dropdown-item text-dark"
+                aria-current="page"
+                routerLink="/editorial/create"
+                *ngIf="admin_identify_func()"
+                >Create editorial
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="red"
+                  class="bi bi-pencil-square"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"
+                  />
+                  <path
+                    fill-rule="evenodd"
+                    d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"
+                  /></svg
+              ></a>
+            </li>
+            <li>
+              <hr class="dropdown-divider" *ngIf="admin_identify_func()" />
+            </li>
+            <li>
+              <a
+                class="dropdown-item text-dark"
+                aria-current="page"
+                routerLink="/editorial/view"
+                >View editorials
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="red"
+                  class="bi bi-eyeglasses"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M4 6a2 2 0 1 1 0 4 2 2 0 0 1 0-4zm2.625.547a3 3 0 0 0-5.584.953H.5a.5.5 0 0 0 0 1h.541A3 3 0 0 0 7 8a1 1 0 0 1 2 0 3 3 0 0 0 5.959.5h.541a.5.5 0 0 0 0-1h-.541a3 3 0 0 0-5.584-.953A1.993 1.993 0 0 0 8 6c-.532 0-1.016.208-1.375.547zM14 8a2 2 0 1 1-4 0 2 2 0 0 1 4 0z"
+                  /></svg
+              ></a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            aria-current="page"
+            routerLink="/news/top"
+            *ngIf="isLoggedIn() && !admin_identify_func()"
+            >Top News</a
+          >
+        </li>
+
+        <li class="nav-item dropdown" ngbDropdown>
+          <a
+            class="nav-link dropdown-toggle text-dark"
+            id="navbarScrollingDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            aria-expanded="false"
+            aria-current="page"
+            ngbDropdownToggle
+            *ngIf="isLoggedIn() && !admin_identify_func()"
+          >
+            Categories
+          </a>
+          <ul
+            class="dropdown-menu"
+            ngbDropdownMenu
+            aria-labelledby="navbarScrollingDropdown"
+          >
+            <li ngbDropdownItem>
+              <a
+                class="dropdown-item"
+                aria-current="page"
+                routerLink="/news/sports"
+                *ngIf="isLoggedIn()"
+                >Sports</a
+              >
+            </li>
+            <li ngbDropdownItem>
+              <a
+                class="dropdown-item"
+                aria-current="page"
+                routerLink="/news/business"
+                *ngIf="isLoggedIn()"
+                >Business</a
+              >
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            aria-current="page"
+            routerLink="/news/fav"
+            *ngIf="isLoggedIn() && !admin_identify_func()"
+            >Favorites
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              fill="red"
+              class="bi bi-bookmark-heart"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M8 4.41c1.387-1.425 4.854 1.07 0 4.277C3.146 5.48 6.613 2.986 8 4.412z"
+              />
+              <path
+                d="M2 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v13.5a.5.5 0 0 1-.777.416L8 13.101l-5.223 2.815A.5.5 0 0 1 2 15.5V2zm2-1a1 1 0 0 0-1 1v12.566l4.723-2.482a.5.5 0 0 1 .554 0L13 14.566V2a1 1 0 0 0-1-1H4z"
+              /></svg
+          ></a>
+        </li>
+      </ul>
+
+      <div class="navbar-btn">
+        <button
+          *ngIf="isLoggedIn() && !admin_identify_func()"
+          class="btn btn-outline-dark btn-nav btn-sm me-2"
+          type="button"
+          [routerLink]="['/news/search']"
+          (click)="clickBtn()"
+        >
+          Search
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-search"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+            />
+          </svg>
+        </button>
+        <button
+          *ngIf="
+            !isLoggedIn() &&
+            !isResetActive &&
+            !btnSwap &&
+            !admin_identify_func()
+          "
+          class="btn btn-dark btn-nav"
+          type="button"
+          [routerLink]="['/background']"
+          (click)="clickBtn()"
+        >
+          Sign up
+        </button>
+
+        <button
+          *ngIf="isLoggedIn() && !admin_identify_func()"
+          class="btn btn-outline-dark btn-nav btn-sm me-2"
+          type="button"
+          [routerLink]="['/reset']"
+        >
+          Edit profile
+        </button>
+
+        <button
+          *ngIf="isLoggedIn()"
+          class="btn btn-danger btn-sm btn-nav"
+          type="button"
+          (click)="logout()"
+        >
+          Logout
+        </button>
+
+        <button
+          *ngIf="!isLoggedIn() && btnSwap"
+          class="btn btn-dark btn-nav"
+          type="button"
+          (click)="loginClick()"
+        >
+          Login
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div id="router-container">
+  <router-outlet></router-outlet>
+</div>

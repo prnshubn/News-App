@@ -1,0 +1,95 @@
+<div
+  class="mask rgba-gradient d-flex mx-auto justify-content-center align-items-center resetBg"
+>
+  <!-- Content -->
+  <div class="container flex-center">
+    <form [formGroup]="resetForm" (ngSubmit)="onReset()">
+      <!-- User Name -->
+      <div class="form-group my-4">
+        <label for="name" id="labelUI"> <b>Name </b></label>
+        <input
+          id="name"
+          name="name"
+          type="text"
+          [formControl]="name"
+          class="form-control"
+          placeholder="Name"
+        />
+        <div
+          *ngIf="name.invalid && (name.dirty || name.touched)"
+          class="alert-danger"
+        ></div>
+      </div>
+      <!-- Password -->
+      <div class="form-group my-4">
+        <label for="password" id="labelUI"> <b>New Password </b></label>
+        <input
+          id="password"
+          name="password"
+          type="password"
+          [formControl]="password"
+          class="form-control"
+          placeholder="Password"
+        />
+        <div
+          *ngIf="password.invalid && (password.dirty || password.touched)"
+          class="alert-danger"
+        ></div>
+      </div>
+      <!-- Submit Button -->
+      <div class="text-center my-4">
+        <button type="submit" class="btn btn-outline-success">
+          Save changes
+        </button>
+      </div>
+    </form>
+    <hr class="my-5" style="height: 2px; color: gray" />
+    <div class="container flex-center my-5">
+      <h3 class="text-dark" style="font-weight: bold">
+        Delete profile?
+        <button
+          class="btn btn-outline-danger mx-5"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasBottom"
+          aria-controls="offcanvasBottom"
+        >
+          Delete
+        </button>
+      </h3>
+    </div>
+
+    <div
+      class="offcanvas offcanvas-bottom"
+      tabindex="-1"
+      id="offcanvasBottom"
+      aria-labelledby="offcanvasBottomLabel"
+      style="background-color: #8bf0ba"
+    >
+      <div class="offcanvas-header">
+        <h1 class="offcanvas-title" id="offcanvasBottomLabel">
+          Are you sure you want to permanently delete your News app profile?
+        </h1>
+        <button
+          type="button"
+          class="btn-close text-reset"
+          data-bs-dismiss="offcanvas"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="offcanvas-body small">
+        <button
+          class="btn btn-outline-danger btn-lg mx-3"
+          (click)="onUserDelete()"
+        >
+          Yes, delete my profile
+        </button>
+        <button
+          class="btn btn-outline-primary btn-lg mx-3"
+          data-bs-dismiss="offcanvas"
+        >
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

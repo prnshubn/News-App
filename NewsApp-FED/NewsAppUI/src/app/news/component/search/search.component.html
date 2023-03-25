@@ -1,0 +1,26 @@
+<body>
+  <div class="container-md-8 p-5" style="background-color: #fff5d7">
+    <form
+      [formGroup]="searchform"
+      (ngSubmit)="searchSubmit()"
+      class="mx-auto form-font"
+    >
+      <div class="form-group my-4">
+        <input
+          id="search"
+          name="search"
+          type="text"
+          [formControl]="keyword"
+          class="form-control"
+          placeholder="Search for a keyword"
+        />
+        <div class="text-center my-3">
+          <button type="submit" value="Search" class="btn btn-outline-dark">
+            Search
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <app-container [newsList]="newsList"></app-container>
+</body>

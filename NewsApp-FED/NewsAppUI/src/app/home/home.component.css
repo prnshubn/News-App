@@ -1,0 +1,17 @@
+tbody tr:hover {
+  background-color: #8bf0ba;
+  transform: scale(1.01);
+}
+
+table,
+th,
+td {
+  border-collapse: collapse;
+  padding: 10px;
+  transition: transform 0.2s;
+}
+
+.table-container {
+  min-height: 100vh;
+  width: 100%;
+}

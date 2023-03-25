@@ -1,0 +1,24 @@
+.myNav {
+  width: 100%;
+  font-family: unset;
+  font-weight: bold;
+}
+
+.vl {
+  border-left: 6px solid black;
+  height: 40px;
+}
+
+.myIcon {
+  padding-bottom: 3px;
+  padding-inline-end: 4px;
+}
+
+#router-container {
+  height: 100vh;
+  width: 100%;
+}
+
+.navbar-nav > li > .dropdown-menu {
+  background-color: #8bf0ba;
+}

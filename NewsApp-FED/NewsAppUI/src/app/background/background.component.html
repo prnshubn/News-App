@@ -1,0 +1,40 @@
+<div class="myContainer">
+  <div class="container-xs">
+    <video autoplay loop muted plays-inline class="myVideo">
+      <source src="assets/NewsBG.mp4" type="video/mp4" />
+    </video>
+
+    <div *ngIf="logIn.loginCheck || !app.clickCheck" class="my-5">
+      <app-login></app-login>
+      <div class="text-center" id="footer">
+        Don't have account?
+        <a id="forget" routerLink="/background" (click)="onSignUpClick()">
+          Sign Up</a
+        >
+      </div>
+    </div>
+
+    <div *ngIf="updateCheck">
+      <app-reset></app-reset>
+    </div>
+
+    <div
+      class="container-xl-6"
+      *ngIf="
+        (app.clickCheck && !updateCheck) || (signUpClickCheck && app.LinCheck)
+      "
+    >
+      <app-register></app-register>
+      <div class="text-center my-2" id="footer">
+        Existing User?
+        <a id="forget" routerLink="/background" (click)="clickLogIn()">
+          Log In</a
+        >
+      </div>
+    </div>
+
+    <div class="content container-xl-6 mt-5">
+      <h1>News App</h1>
+    </div>
+  </div>
+</div>

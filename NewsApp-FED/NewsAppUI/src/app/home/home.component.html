@@ -1,0 +1,86 @@
+<div class="table-container">
+  <div class="container-md-8 m-5 p-5">
+    <table class="table table-striped mt-3">
+      <thead>
+        <tr>
+          <th scope="col" class="text-center">Name</th>
+          <th scope="col" class="text-center">Email</th>
+          <th scope="col" class="text-center">Date Created On</th>
+          <th scope="col" class="text-center">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of userData">
+          <td *ngIf="row.user_id !== 1" class="text-center">{{ row.name }}</td>
+          <td *ngIf="row.user_id !== 1" class="text-center">{{ row.email }}</td>
+          <td *ngIf="row.user_id !== 1" class="text-center">
+            {{ row.createdOn }}
+          </td>
+          <td *ngIf="row.user_id !== 1" class="text-center">
+            <button
+              type="button"
+              (click)="deleteUser(row)"
+              class="btn btn-danger mx-3 btn-sm"
+            >
+              Delete
+            </button>
+            <button
+              type="button"
+              class="btn btn-danger mx-3 btn-sm"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasBottom"
+              aria-controls="offcanvasBottom"
+              (click)="setUserEmailOnClick(row)"
+              *ngIf="checkUserStatus(row)"
+            >
+              Deactivate
+            </button>
+            <button
+              type="button"
+              class="btn btn-success mx-3 btn-sm"
+              (click)="clickActivate(row)"
+              *ngIf="!checkUserStatus(row)"
+            >
+              Activate
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div
+  class="offcanvas offcanvas-bottom"
+  tabindex="-1"
+  id="offcanvasBottom"
+  aria-labelledby="offcanvasBottomLabel"
+  style="background-color: #8bf0ba"
+>
+  <div class="offcanvas-header">
+    <h1 class="offcanvas-title" id="offcanvasBottomLabel">
+      Are you sure you want to deactivate this user?
+    </h1>
+    <button
+      type="button"
+      class="btn-close text-reset"
+      data-bs-dismiss="offcanvas"
+      aria-label="Close"
+    ></button>
+  </div>
+  <div class="offcanvas-body small">
+    <button
+      class="btn btn-outline-danger btn-lg mx-3"
+      data-bs-dismiss="offcanvas"
+      (click)="clickDeactivate()"
+    >
+      Yes, deactivate user
+    </button>
+    <button
+      class="btn btn-outline-primary btn-lg mx-3"
+      data-bs-dismiss="offcanvas"
+    >
+      Cancel
+    </button>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+#labelUI {
+  color: black;
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+.resetBg {
+  width: 100%;
+  height: 100vh;
+  background-color: #fff5d7;
+}
+
+#offcanvasBottomLabel {
+  font-family: unset;
+  font-weight: bold;
+}

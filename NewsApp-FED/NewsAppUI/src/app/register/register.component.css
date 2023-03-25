@@ -1,0 +1,13 @@
+#labelUI {
+  color: chartreuse;
+}
+
+.btn-outline-success {
+  background-color: transparent !important;
+  color: chartreuse;
+  font-weight: bolder;
+}
+
+.form-feedback {
+  border-radius: 5px;
+}
